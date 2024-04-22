@@ -103,17 +103,17 @@ function menuState:draw()
   love.graphics.draw(star.img, star.x, star.y,star.angle,1,1,48,99)
   
   love.graphics.setFont(Asset.Font[80])
-  love.graphics.setColor(colors.title_color)
+  love.graphics.setColor(love.math.colorFromBytes(colors.title_color)) -- https://www.love2d.org/wiki/love.graphics.setColor
   love.graphics.printf('Starz Puzzle',0,80,love.graphics.getWidth(),'center')
   
   love.graphics.setFont(Asset.Font[40])
   for i,entry in ipairs(text.entries) do
-    love.graphics.setColor(i==text.selected_entry and colors.highlight_color or colors.base_color)
+    love.graphics.setColor(love.math.colorFromBytes(i==text.selected_entry and colors.highlight_color or colors.base_color))
     love.graphics.printf(entry,0, text.start_text+((i-1)*text.spacing),love.graphics.getWidth(),'center')
   end
   
   love.graphics.setFont(Asset.Font[10])
-  love.graphics.setColor(colors.base_color)
+  love.graphics.setColor(love.math.colorFromBytes(colors.base_color))
   love.graphics.print('Game made with LOVE2D',640,590)
 end
 

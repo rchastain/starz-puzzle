@@ -21,7 +21,7 @@ function gameOverState:enter(_,args)
 end
 
 function gameOverState:draw()
-  love.graphics.setColor(highlight_color)
+  love.graphics.setColor(love.math.colorFromBytes(highlight_color))
   love.graphics.setFont(Asset.Font[80])
   love.graphics.printf('Game over!',0,love.graphics.getHeight()/2-80,love.graphics.getWidth(),'center')
   

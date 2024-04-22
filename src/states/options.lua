@@ -128,22 +128,22 @@ end
 
 function optionState:draw()
   love.graphics.setFont(Asset.Font[80])
-  love.graphics.setColor(colors.highlight_color)
+  love.graphics.setColor(love.math.colorFromBytes(colors.highlight_color))
   love.graphics.printf('Options',0,80,love.graphics.getWidth(),'center')
   
   love.graphics.setFont(Asset.Font[40])
   for i,entry in ipairs(text.entries) do
     if not text.entries_supported[i] then 
-      love.graphics.setColor(colors.deactivated_color)
+      love.graphics.setColor(love.math.colorFromBytes(colors.deactivated_color))
       love.graphics.printf(entry,0, text.start_text+((i-1)*text.spacing),love.graphics.getWidth(),'center')   
     else
-      love.graphics.setColor(i==text.selected_entry and colors.highlight_color or colors.base_color)
+      love.graphics.setColor(love.math.colorFromBytes(i==text.selected_entry and colors.highlight_color or colors.base_color))
       love.graphics.printf(entry,0, text.start_text+((i-1)*text.spacing),love.graphics.getWidth(),'center')   
     end    
   end
 
   love.graphics.setFont(Asset.Font[10])
-  love.graphics.setColor(colors.base_color)
+  love.graphics.setColor(love.math.colorFromBytes(colors.base_color))
   love.graphics.print('[Enter] : OK',650,580)
   love.graphics.print('[Esc] : Back to menu',650,590)
 end

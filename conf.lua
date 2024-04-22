@@ -39,6 +39,7 @@ function love.conf(config)
   config.modules.event = true
   config.modules.physics = false
   config.modules.video = false
-  config.modules.math = false
+  --~ config.modules.math = false
+  config.modules.math = true
   config.modules.thread = false
 end

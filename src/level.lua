@@ -143,47 +143,47 @@ end
 function Level:draw()
   self:drawEntities()
   if not self.has_started then
-    love.graphics.setColor(colors.highlight_color)
+    love.graphics.setColor(love.math.colorFromBytes(colors.highlight_color))
     love.graphics.setFont(Asset.Font[20]) 
     love.graphics.printf('Press any key to start!', 0, 50, love.graphics.getWidth(),'center')
   end
   
   if self.new_best_score then
     love.graphics.setFont(Asset.Font[40])
-    love.graphics.setColor(colors.highlight_color)
+    love.graphics.setColor(love.math.colorFromBytes(colors.highlight_color))
     love.graphics.printf('Record!',0,470,love.graphics.getWidth(),'center')
   end
   
   if self.time:getValue() < 10 then
     if self.time:getValue()%2==0 then
-      love.graphics.setColor(colors.warn_color_1)
+      love.graphics.setColor(love.math.colorFromBytes(colors.warn_color_1))
     else
-      love.graphics.setColor(colors.warn_color_2)
+      love.graphics.setColor(love.math.colorFromBytes(colors.warn_color_2))
     end
   else
-    love.graphics.setColor(colors.base_color)
+    love.graphics.setColor(love.math.colorFromBytes(colors.base_color))
   end
   love.graphics.setFont(Asset.Font[20]) 
   love.graphics.print('Remaining time : ' ..  self.time:getString(),5,540)
   
   if self.new_best_score then
-    love.graphics.setColor(colors.highlight_color)
+    love.graphics.setColor(love.math.colorFromBytes(colors.highlight_color))
   else
-    love.graphics.setColor(colors.base_color)
+    love.graphics.setColor(love.math.colorFromBytes(colors.base_color))
   end
   love.graphics.print('Score : ' ..  self.entities.player.score,5,560)
   love.graphics.print('Best score : ' ..  self.best_score,5,580)
   
   if self.is_clear then
     love.graphics.setFont(Asset.Font[20])
-    love.graphics.setColor(colors.base_color)
+    love.graphics.setColor(love.math.colorFromBytes(colors.base_color))
     love.graphics.print(self.is_clear and '[N]ext level' or '[P]ause',580,540) 
     love.graphics.setFont(Asset.Font[40]) 
-    love.graphics.setColor(colors.highlight_color)    
+    love.graphics.setColor(love.math.colorFromBytes(colors.highlight_color))    
     love.graphics.printf('Level finished!',0,430,love.graphics.getWidth(),'center')      
   end
   love.graphics.setFont(Asset.Font[20])
-  love.graphics.setColor(colors.base_color) 
+  love.graphics.setColor(love.math.colorFromBytes(colors.base_color)) 
   love.graphics.print('[R]estart',580,560)
   love.graphics.print('[M]enu',580,580)    
 end
